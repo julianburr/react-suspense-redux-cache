@@ -1,0 +1,17 @@
+{
+  "name": "react-suspense-redux-cache",
+  "version": "0.0.1",
+  "description": "Using redux with React suspense to store the cache",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianburr/react-suspense-redux-cache.git"
+  },
+  "keywords": ["react", "redux", "suspense", "cache"],
+  "author": "Julian Burr <hello@julianburr.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julianburr/react-suspense-redux-cache/issues"
+  },
+  "homepage": "https://github.com/julianburr/react-suspense-redux-cache#readme"
+}
