@@ -1,12 +1,12 @@
 let i = 0;
 
-const createFetcher = (store, method, hash = (i) => i) => {
+function createFetcher (store, method, hash = (i) => i) {
   let cacheKey = ++i;
-  return (...args) => {
-    const key = `${cacheKey}--${hash(...args)}`;
+  return function fetch () {
+    const key = `${cacheKey}--${hash.apply(this, arguments)}`;
     const fromCache = store.getState().cache[key];
     if (!fromCache) {
-      throw method(...args).then((response) => {
+      throw method.apply(this, arguments).then((response) => {
         return new Promise((resolve) => {
           store.dispatch({
             type: 'cache/ADD',
@@ -24,16 +24,15 @@ const createFetcher = (store, method, hash = (i) => i) => {
     }
     return fromCache;
   };
-};
+}
 
 // Reducer for the Redux store
 const cacheReducer = (state, action) => {
   switch (action.type) {
     case 'cache/ADD':
-      return {
-        ...state,
+      return Object.assign({}, state, {
         [action.payload.key]: action.payload.data
-      };
+      });
       break;
 
     default:
