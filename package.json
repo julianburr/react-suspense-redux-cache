@@ -1,6 +1,6 @@
 {
   "name": "react-suspense-redux-cache",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Using redux with React suspense to store the cache",
   "main": "index.js",
   "repository": {

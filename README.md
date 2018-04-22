@@ -51,6 +51,10 @@ class App extends PureComponent {
   }
 }
 
+// Invalidate cache
+getUsers.invalidate(key); // specific entry
+getUsers.invalidate(); // all entries in cache
+
 // Render
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -64,3 +68,4 @@ root.render(
     </Provider>
   </React.unstable_AsyncMode>
 );
+```
